@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "concurrent-programs"
+name = "python-concurrency"
 version = "0.0.1"
 description = "Concurrent programming"
 authors = ["Bibek Bhattacharya <bibek.bhattacharya@sensynehealth.com>"]
