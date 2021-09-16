@@ -3,23 +3,24 @@ import time
 from typing import List
 
 
-def cpu_bound(number: int) -> int:
+def cpu_bound_workload(number: int) -> int:
     return sum(i * i for i in range(number))
 
 
-def find_sums(numbers: List[int]) -> List[int]:
+def compute_sums(numbers: List[int]) -> List[int]:
     with multiprocessing.Pool() as pool:
-        return pool.map(cpu_bound, numbers)
+        return pool.map(cpu_bound_workload, numbers)
 
 
 if __name__ == "__main__":
+    print(f"Number of CPU cores: {multiprocessing.cpu_count()}")
 
     numbers: List[int] = [5_000_001 + x for x in range(20)]
     print(f"Input list of integers: : {numbers}")
 
     start_time = time.time()
 
-    sums: List[int] = find_sums(numbers)
+    sums: List[int] = compute_sums(numbers)
     duration = time.time() - start_time
 
     print(f"Output list of integers: : {sums}")
