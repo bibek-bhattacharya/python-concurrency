@@ -9,6 +9,8 @@ def cpu_bound_workload(number: int) -> int:
 
 def compute_sums(numbers: List[int]) -> List[int]:
     with multiprocessing.Pool() as pool:
+        # This will call the function in parallel once for each element in the list.
+        # This is similar to a parallel-for loop found in other programming languages.
         return pool.map(cpu_bound_workload, numbers)
 
 
